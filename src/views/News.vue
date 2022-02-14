@@ -25,9 +25,41 @@
 <script>
 import moment from 'moment'
 import _ from 'lodash'
+import { defineComponent, computed, reactive } from 'vue'
+import { useHead } from '@vueuse/head'
 
 export default {
   name: 'News',
+  setup() {
+    const siteData = reactive({
+      title: `Realtime Covid-19 Information | Latest News`,
+      description: `Check out the Global/Japan realtime covid-19 information here. Also you can get the latest news and recent condition from another country.`,
+      keywords: `covid, covid19, corona, corona19, corona virus, covid-19, virus, omicron, vaccine, booster shot, covid news, covid information`
+    })
+
+    useHead({
+      // Can be static or computed
+      title: computed(() => siteData.title),
+      meta: [
+        {
+          name: `description`,
+          content: computed(() => siteData.description),
+        },
+        {
+          name: `keywords`,
+          content: computed(() => siteData.keywords),
+        },
+        {
+          name: `meta`,
+          content: `website`,
+        },
+        {
+          name: `robots`,
+          content: `index, follow`,
+        }
+      ],
+    })
+  },
   data() {
     return{
       loading:true,
