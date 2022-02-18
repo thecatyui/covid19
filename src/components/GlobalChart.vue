@@ -32,8 +32,8 @@ export default {
     const globalNewConfirmed = [globalData[0].newConfirmed, globalData[1].newConfirmed, globalData[2].newConfirmed, globalData[3].newConfirmed, globalData[4].newConfirmed, globalData[5].newConfirmed, globalData[6].newConfirmed, globalData[7].newConfirmed]
     const globalDate = [globalData[0].date, globalData[1].date, globalData[2].date, globalData[3].date, globalData[4].date, globalData[5].date, globalData[6].date, globalData[7].date]
 
-    const arrayGlobalConfirmed = globalData.map((fullNewConfirmed) => fullNewConfirmed.newConfirmed).slice(0,13)
-    const arrayGlobalDate = globalData.map((fullDate) => fullDate.date).slice(0,13)
+    const arrayGlobalConfirmed = globalData.map((fullNewConfirmed) => fullNewConfirmed.newConfirmed).reverse().slice(0,14).reverse()
+    const arrayGlobalDate = globalData.map((fullDate) => fullDate.date).reverse().slice(0,14).reverse()
 
       let globalCtx = document.getElementById("globalChart");
       new Chart(globalCtx, {
@@ -42,7 +42,7 @@ export default {
         data:{
           labels: arrayGlobalDate,
           datasets: [{
-            label: 'Global New Confirmed',
+            label: 'New Confirmed (Global, 2 weeks)',
             data: arrayGlobalConfirmed,
             backgroundColor: [
               'rgba(54, 162, 235, 0.2)',

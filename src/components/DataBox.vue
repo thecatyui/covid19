@@ -17,7 +17,7 @@
                 <span>Total Recovered : {{ numberWithCommas(stats.TotalRecovered) }}</span>
             </div>
         </div>
-        <div class="text-center">
+        <div class="flex flex-col text-center">
             <h2 class="mt-5 md:mt-10 text-xl text-gray-800 text-center">Global Chart</h2>
         </div>
         <div class="flex flex-grow h-full bg-white p-3 mt-3 rounded-md shadow-md">
